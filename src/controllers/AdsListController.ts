@@ -1,11 +1,20 @@
 import * as angular from 'angular';
 
 
-let AdsListController: ng.IControllerConstructor = function ($http: any, $q: any) {
+let AdsListController: ng.IControllerConstructor = function ($http: any, $q: any, $sce: any) {
     angular.extend(this, {
         //apiUrl: 'https://api.mcmakler.de/v1/advertisements',
-        apiUrl: 'api/get',
+        apiUrl: 'api/get2',
         $onInit: function () {
+            var url = this.apiUrl
+            var trustedUrl = $sce.trustAsResourceUrl(url);
+
+//            $http.jsonp(trustedUrl, {jsonpCallbackParam: 'callback'})
+//                .then(
+//                    this.onSuccessGet.bind(this),
+//                    this.onErrorGet.bind(this)
+//                );
+
             $http({
                 method: "GET",
                 url: this.apiUrl

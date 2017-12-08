@@ -17,10 +17,12 @@ webpackJsonp([ 0 ], [ , function(module, exports, __webpack_require__) {
         value: true
     });
     var angular = __webpack_require__(0);
-    var AdsListController = function($http, $q) {
+    var AdsListController = function($http, $q, $sce) {
         angular.extend(this, {
-            apiUrl: "api/get",
+            apiUrl: "api/get2",
             $onInit: function() {
+                var url = this.apiUrl;
+                var trustedUrl = $sce.trustAsResourceUrl(url);
                 $http({
                     method: "GET",
                     url: this.apiUrl

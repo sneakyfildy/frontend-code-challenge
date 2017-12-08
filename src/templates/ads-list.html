@@ -1,0 +1,35 @@
+<div class="list-container" ng-cloak>
+    <div class="ad-container" ng-repeat="item in $ctrl.items">
+        <div class="ad">
+            <div class="upper">
+                <div class="type">{{item.purpose ? 'Mieten' : 'Kaufen'}}</div>
+                <div class="pic">
+                    <!-- this looks extremely weird to lookup for a title picture on client  -->
+                    <!-- backend must serve in directly (easily reachable)  -->
+                    <img class="thumbnail" alt="preview"
+                         ng-src="{{item._titlePic.advertisementThumbnails.inventory_m.url}}"/>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="desc">{{item.title}}</div>
+                <div class="address" ng-hide="!item.userWishes.visibleAddress">
+                    {{item.realestateSummary.address.postalCode}} {{item.realestateSummary.address.city}} / {{item.realestateSummary.address.street}}
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="price">
+                    {{item.purpose ? item.advertisementPrice.baseRent : item.advertisementPrice.sellPrice}} &nbsp;€
+                </div>
+
+                <div class="rooms-and-size">
+                    <div class="rooms">
+                        <!-- zimmer <> rooms, I dunno, it shows possibilities if needed-->
+                        {{item.realestateSummary.numberOfRooms}} room{{item.realestateSummary.numberOfRooms > 1 ? 's' : ''}}
+                    </div>
+                    <span class="delimiter"></span>
+                    <div class="size">ab {{Math.round(item.realestateSummary.space)}}m <sup>2</sup></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

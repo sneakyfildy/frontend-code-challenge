@@ -1,0 +1,122 @@
+img.example {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ad-container {
+    vertical-align: top;
+    display: inline-block;
+
+    .ad {
+        display: inline-block;
+        opacity: 0.5;
+        width: 291px;
+        height: 371px;
+        border: 1px solid #eee;
+        margin: 12px 12px 0 19px;
+
+        font-size: 13px;
+
+        .upper {
+            height: 52.5%;
+            position: relative;
+
+            .type {
+                position: absolute;
+                top: 17px;
+                left: 17px;
+                padding: 7px 7px;
+                background: white;
+                color: #ccc;
+                border-radius: 2px;
+                font-size: 11px;
+
+                .text-bold;
+            }
+
+            .pic {
+                width: 100%;
+                height: 100%;
+
+                .thumbnail {
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+
+        .middle {
+            height: 30%;
+
+            .desc {
+                max-height: 35px;
+                padding: 29px 25px 0 31px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: 18px;
+            }
+
+            .address {
+                padding: 11px 0 0 31px;
+                padding-top: 10px;
+                font-size: 11px;
+            }
+        }
+
+        .bottom {
+            height: 17.5%;
+            position: relative;
+
+            @rooms-width: 66px;
+            @size-width: 80px;
+
+            .price, .rooms-and-size {
+                position: absolute;
+                top: 13px;
+            }
+
+            .delimiter {
+                position: absolute;
+                top: -3px;
+                left: (@rooms-width + 1);
+                height: 23px;
+                border-left: 1px solid #ccc;
+            }
+
+            .price {
+                .text-bold;
+                padding-left: 32px;
+                /* price should be visible ALWAYS even if it breaks markup */
+                max-width: 105px;
+                max-width: 100px;
+                word-break: break-word;
+            }
+
+            /*https://stackoverflow.com/questions/1530685/html-sup-tag-affecting-line-height-how-to-make-it-consistent*/
+            sup {
+                vertical-align: top; font-size: 0.6em;
+            }
+
+            .rooms-and-size {
+                right: 0;
+                width: 157px;
+
+                .rooms, .size {
+                    position: absolute;
+                }
+
+                .rooms {
+                    width: @rooms-width;
+                }
+
+                .size {
+                    width: @size-width;
+                    left: (@rooms-width + 10);
+                }
+            }
+        }
+    }
+}

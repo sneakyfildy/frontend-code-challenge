@@ -7,7 +7,9 @@ module.exports = function (grunt) {
 	watchJsFiles = [
         'Gruntfile.js',
         'src/**/*.js',
-        'js/**/*.ts',
+        'src/**/*.ts',
+        'src/**/*.html',
+        'src/*.ts',
         'index.html',
         'package.json'
     ];
@@ -55,7 +57,7 @@ module.exports = function (grunt) {
             webpack_main: {
                 files: watchJsFiles,
                 tasks: ['jshint:app', 'webpack:app', 'uglify:app', 'uglify:vendor'],
-                options: {cwd: {files: 'static/'}}
+                //options: {cwd: {files: 'static/'}}
             }
         },
         webpack: {
